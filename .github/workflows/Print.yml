@@ -2,7 +2,7 @@ name: Print a message # Workflow name
 on: # Define the events that trigger the workflow
   push: # Trigger the workflow on push events
     branches: # Specify the branches to trigger the workflow on
-     -main # Trigger the workflow on push events to the main branch
+     - main # Trigger the workflow on push events to the main branch
 
 jobs: # Define the jobs to run in the workflow
   print_message: # Job name
