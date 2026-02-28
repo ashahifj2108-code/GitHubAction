@@ -20,7 +20,10 @@ jobs: # Define the jobs to run in the workflow
       - name: Install dependencies # Step name
         run: | # Command to install dependencies
           python -m pip install --upgrade pip # Upgrade pip to the latest version
-          pip install pytest # Install pytest for testing
+          pip install Pipenv # Install pytest for testing
+
+      - name: Install Pipenv # Step name
+        run: pip install -r requirement.txt # Install Pipenv for managing dependencies
 
       - name: Run tests # Step name
         run: | # Command to run the tests
