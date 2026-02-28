@@ -1,0 +1,16 @@
+name: Print a message # Workflow name
+on: # Define the events that trigger the workflow
+  push: # Trigger the workflow on push events
+    branches: # Specify the branches to trigger the workflow on
+     -main # Trigger the workflow on push events to the main branch
+
+jobs: # Define the jobs to run in the workflow
+  print_message: # Job name
+    runs-on: ubuntu-latest # Specify the operating system to run the job on
+
+    steps: # Define the steps to run in the job
+      - name: Print a message # Step name
+        run: echo "Hello, this is a message from the GitHub Actions workflow!" # Command to print the message
+      
+      - name: Print another message # Step name
+        run: echo "This is another message printed by the workflow!" # Command to print another message
