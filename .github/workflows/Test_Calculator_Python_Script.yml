@@ -1,8 +1,8 @@
 name: Test Calculator Python Script # Workflow name
 on: # Define the events that trigger the workflow
-  push: # Trigger the workflow on push events 
-  branches: # Specify the branches to trigger the workflow on
-    - main # Trigger the workflow on push events to the main branch
+  push: # Trigger the workflow on push events
+    branches: # Specify the branches to trigger the workflow on
+      - main # Trigger the workflow on push events to the main branch
 
 jobs: # Define the jobs to run in the workflow
   test_calculator: # Job name
