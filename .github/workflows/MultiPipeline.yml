@@ -1,0 +1,60 @@
+name: Multi Pipeline 
+on:
+    push:
+        branches:
+            - main
+
+    pull_request:
+        branches:
+            -main
+        types:
+            - closed
+            - opened
+
+    schedule:
+        - cron: "0 10 * * 2,4"
+        
+
+    workflow_dispatch:
+
+jobs:
+    on-push:
+        if: github.event_name == 'push'
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: on-push steps
+              run: echo "This is the on-push pipeline"
+    
+    on-pull-request-opened:
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: on-pull-request steps
+              run: echo "This is the on-pull-request pipeline"
+
+    on-pull-request-closed:
+        if: github.event_name =='pull_request' && github.event.action == 'closed'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: on-pull-request-closed steps
+              run: echo "This is the on-pull-request-closed pipeline"
+
+    on-schedule:
+        if: github.event_name == 'schedule'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: on-schedule steps
+              run: echo "This is the on-schedule pipeline"
+
+    workflow-dispatch:
+        if: github.event_name == 'workflow_dispatch'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: workflow-dispatch steps
+              run: echo "This is the workflow-dispatch pipeline"
